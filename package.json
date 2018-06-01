@@ -1,0 +1,23 @@
+{
+  "name": "geyser",
+  "version": "1.0.0",
+  "description": "Portable Data Visualization Suite",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukemoderwell/geyser.git"
+  },
+  "author": "Luke Moderwell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukemoderwell/geyser/issues"
+  },
+  "homepage": "https://github.com/lukemoderwell/geyser#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

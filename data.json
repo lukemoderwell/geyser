@@ -1,0 +1,85 @@
+{
+  "channels": {
+      "crossroadsMusic": {
+          "likes": {
+              "amount": 378,
+              "weeklyChange": 7.47,
+              "monthlyChange": 3.25
+          },
+          "shares": {
+              "amount": 124,
+              "weeklyChange": -12.84,
+              "monthlyChange": -0.45
+          },
+          "audienceRetention": {
+              "amount": 89.23,
+              "weeklyChange": 14.49,
+              "monthlyChange": 8.39
+          },
+          "subscriptions": {
+              "amount": 332,
+              "weeklyChange": -7,
+              "monthlyChange": 32
+          },
+          "trendingTopics": {
+              "faith": 53,
+              "jesus": 47,
+              "struggle": 37,
+              "love": 31,
+              "rock": 24
+          }
+      },
+      "brianBringsABeer": {
+          "likes": {
+              "amount": 559,
+              "weeklyChange": 10.58,
+              "monthlyChange": 4.42
+          },
+          "shares": {
+              "amount": 45,
+              "weeklyChange": 2.41,
+              "monthlyChange": 0.79
+          },
+          "audienceRetention": {
+              "amount": 68.23,
+              "weeklyChange": 0.37,
+              "monthlyChange": 0.11
+          },
+          "subscriptions": {
+              "amount": 45,
+              "weeklyChange": 2,
+              "monthlyChange": 7
+          },
+          "trendingTopics": {}
+      },
+      "crossroads": {
+          "likes": {
+              "amount": 14279,
+              "weeklyChange": 2.72,
+              "monthlyChange": 0.17
+          },
+          "shares": {
+              "amount": 5243,
+              "weeklyChange": -0.47,
+              "monthlyChange": 0.24
+          },
+          "audienceRetention": {
+              "amount": 23.98,
+              "weeklyChange": 4.72,
+              "monthlyChange": 2.98
+          },
+          "subscriptions": {
+              "amount": 9804,
+              "weeklyChange": 78,
+              "monthlyChange": 143
+          },
+          "trendingTopics": {
+              "family": 88,
+              "crisis": 72,
+              "employment": 59,
+              "beingSingle": 57,
+              "findingChrist": 42
+          }
+      }
+  }
+}
