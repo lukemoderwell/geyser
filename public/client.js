@@ -11,15 +11,20 @@ function isPostive(n) {
   return n;
 }
 
+function fillProgress() {
+  const bar = document.querySelector('[data-progress]');
+  const progress = bar.dataset.progress;
+  bar.style.width = `${progress}%`;
+}
+
 function init() {
   let subsChange = [];
-  console.log(channels);
   for (var key in channels) {
     if (channels.hasOwnProperty(key)) {
       subsChange.push(channels[key].subscribers.weeklyChange);
     }
+    
   }
-
   for (var i = 0; i < subs.length; i += 1) {
     var text = isPostive(subsChange[i]);
     let el = document.createElement('h2');
@@ -27,6 +32,8 @@ function init() {
     el.innerText = text;
     subs[i].appendChild(el);
   }
+
+  fillProgress();
 }
 
 init();
