@@ -8,8 +8,7 @@
   <meta name="description" content="Data so you can see it">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
+  <!-- <link rel="apple-touch-icon" href="icon.png"> -->
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.1.1/dist/css/bootstrap.min.css">
@@ -18,59 +17,62 @@
 
 <body>
   <div class="container mv4">
-    <div class="row d-flex align-items-center">
-      <div class="w4"></div>
-      <div class="metric-label mh4"><p>Weekly Subscribers</p></div>
-      <div class="metric-label mh4"><p>Audience Retention</p></div>
-      <div class="metric-label mh4"><p>Wayne Score</p></div>
+    <div class="row">
+      <div class="d-flex align-items-center w-100 tc">
+        <div class="w-25 mh2 tc"><h5>Channels</h5></div>
+        <div class="w-25 mh2 tc"><h5>Subscribers</h5></div>
+        <div class="w-25 mh2 tc"><h5>Audience Retention</h5></div>
+        <div class="w-25 mh2 tc"><h5>Watch Time</h5></div>
+      </div>
     </div>
     <div class="row">
-      <div class="channel d-flex align-items-center w-100 mv2">
-        <div class="channel-card w4 pa2 tc">
-          <img src="http://tachyons.io/img/logo.jpg" class="br2 h3 w3 dib" alt="avatar">
-          <p>Crossroads</p>
+      <div class="channel d-flex align-items-center w-100 mv3">
+        <div class="channel-card w-25 pa2 tc">
+          <img class="br2 h3 w3 dib" alt="Crossroads" src="https://yt3.ggpht.com/-ARyyPytxr6c/AAAAAAAAAAI/AAAAAAAAAAA/gi3AstIN5DY/s88-c-k-no-mo-rj-c0xffffff/photo.jpg" />
+          <h2 class="f6">Crossroads</h2>
         </div>
-        <div class="channel-metric mh4 tc">
-          <h2>+12%</h2>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="subscribers">
+          <h2 class="f2">+12%</h2>
         </div>
-        <div class="channel-metric mh4 tc">
-          <h2>35</h2>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="retention">
+          <h2 class="f2">35</h2>
         </div>
-        <div class="channel-metric mh4 tc">
-          <h2>-3%</h2>
-        </div>
-      </div>
-      <div class="channel d-flex align-items-center w-100 mv2">
-        <div class="channel-card w4 pa2 tc">
-          <img src="http://tachyons.io/img/logo.jpg" class="br2 h3 w3 dib" alt="avatar">
-          <p>Brian Brings A Beer</p>
-        </div>
-        <div class="channel-metric mh4">
-          <h2>+12%</h2>
-        </div>
-        <div class="channel-metric mh4">
-          <h2>35</h2>
-        </div>
-        <div class="channel-metric mh4  ">
-          <h2>-3%</h2>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="watch">
+          <h2 class="f2">-3%</h2>
         </div>
       </div>
-      <div class="channel d-flex align-items-center w-100 mv2">
-        <div class="channel-card w4 pa2 tc">
-          <img src="http://tachyons.io/img/logo.jpg" class="br2 h3 w3 dib" alt="avatar">
-          <p>Crossroads Music</p>
+      <div class="channel d-flex align-items-center w-100 mv3">
+        <div class="channel-card w-25 pa2 tc">
+          <img class="br2 h3 w3 dib" alt="Brian Brings A Beer" src="https://yt3.ggpht.com/-iSi4aKWJr5g/AAAAAAAAAAI/AAAAAAAAAAA/kRuhX3uX_-Y/s108-c-k-no-mo-rj-c0xffffff/photo.jpg" />
+          <h2 class="f6">Brian Brings A Beer</h2>
         </div>
-        <div class="channel-metric mh4">
-          <h2>+12%</h2>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="subscribers">
+          <h2 class="f2">+12%</h2>
         </div>
-        <div class="channel-metric mh4">
-          <h2>35</h2>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="retention">
+          <h2 class="f2">+7</h2>
         </div>
-        <div class="channel-metric mh4  ">
-          <h2>-3%</h2>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="watch">
+          <h2 class="f2">0</h2>
+        </div>
+      </div>
+      <div class="channel d-flex align-items-center w-100 mv3">
+        <div class="channel-card w-25 pa2 tc">
+          <img class="br2 h3 w3 dib" alt="Crossroads Music" src="https://yt3.ggpht.com/-QGBNAAWuTAc/AAAAAAAAAAI/AAAAAAAAAAA/UB7lNkirGuU/s108-c-k-no-mo-rj-c0xffffff/photo.jpg" />
+          <h2 class="f6">Crossroads Music</h2>
+        </div>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="subscribers">
+          <h2 class="f2">-11%</h2>
+        </div>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="retention">
+          <h2 class="f2">+4</h2>
+        </div>
+        <div class="channel-metric pa5 w-25 mh2 tc" data-metric="watch">
+          <h2 class="f2">+22%</h2>
         </div>
       </div>
     </div>
   </div>
+  <script type="text/javascript" src='./client.js'></script>
 </body>
 </html>
