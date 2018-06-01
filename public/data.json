@@ -16,7 +16,7 @@
               "weeklyChange": 14.49,
               "monthlyChange": 8.39
           },
-          "subscriptions": {
+          "subscribers": {
               "amount": 332,
               "weeklyChange": -7,
               "monthlyChange": 32
@@ -45,7 +45,7 @@
               "weeklyChange": 0.37,
               "monthlyChange": 0.11
           },
-          "subscriptions": {
+          "subscribers": {
               "amount": 45,
               "weeklyChange": 2,
               "monthlyChange": 7
@@ -68,7 +68,7 @@
               "weeklyChange": 4.72,
               "monthlyChange": 2.98
           },
-          "subscriptions": {
+          "subscribers": {
               "amount": 9804,
               "weeklyChange": 78,
               "monthlyChange": 143
