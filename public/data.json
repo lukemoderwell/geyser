@@ -23,7 +23,7 @@
             },
             "watchTime": {
                 "amount": 54243,
-                "weeklyChange": -25,
+                "weeklyChange": -10,
                 "monthlyChange": 10
             },
             "trendingTopics": {
@@ -75,17 +75,17 @@
             },
             "audienceRetention": {
                 "amount": 23.98,
-                "weeklyChange": 4.72,
+                "weeklyChange": -20,
                 "monthlyChange": 2.98
             },
             "subscribers": {
                 "amount": 9804,
-                "weeklyChange": 78,
+                "weeklyChange": 33,
                 "monthlyChange": 143
             },
             "watchTime": {
                 "amount": 1245,
-                "weeklyChange": 55,
+                "weeklyChange": 5,
                 "monthlyChange": 12
             },
             "trendingTopics": {

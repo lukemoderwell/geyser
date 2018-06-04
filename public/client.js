@@ -16,7 +16,6 @@ function isPostive(n) {
 function count(dataType) {
   let count = 0;
   for (var key in channels) {
-    console.log(channels[key][dataType].amount);
     count = count + channels[key][dataType].amount;
   }
   return count;
@@ -32,10 +31,15 @@ function getWeeklyData(dataType) {
 
 function createCards(arr, nodes) {
   for (var i = 0; i < arr.length; i += 1) {
-    var value = arr[i];
-    var parent = nodes[i];
+    const value = arr[i];
+    const parent = nodes[i];
+    const el = document.createElement('h2');
     switch (true) {
-      case (value > 10):
+      case (value >= 20):
+        parent.classList.add('bg-blue');
+        el.classList.add('white');
+        break;
+      case (value > 10 && value < 20):
         parent.classList.add('bg-light-blue');
         break;
       case (value < 10 && value > 0):
@@ -47,15 +51,18 @@ function createCards(arr, nodes) {
       case (value < 0 && value > -10):
         parent.classList.add('bg-washed-red');
         break;
-      case (value < -10):
+      case (value <= -10 && value > -20):
         parent.classList.add('bg-light-red');
+        break;
+      case (value <= -20):
+        parent.classList.add('bg-red');
+        el.classList.add('white');
         break;
       default:
         console.log('error');
     }
     
     var text = isPostive(arr[i]);
-    let el = document.createElement('h2');
     el.classList.add('f2');
     el.innerText = text;
     nodes[i].appendChild(el);
