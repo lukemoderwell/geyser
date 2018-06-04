@@ -1,10 +1,10 @@
 import data from './data.json';
 
-const subGoal = 50000;
+const goal = 50000;
 const channels = data.channels;
-const subs = document.querySelectorAll('[data-metric="subscribers"]');
-
-let totalSubs;
+const subCards = document.querySelectorAll('[data-metric="subscribers"]');
+const retentionCards = document.querySelectorAll('[data-metric="retention"]');
+const watchCards = document.querySelectorAll('[data-metric="watch"]');
 
 function isPostive(n) {
   if (n > 0) {
@@ -13,39 +13,76 @@ function isPostive(n) {
   return n;
 }
 
-function countSubs() {
+function count(dataType) {
   let count = 0;
   for (var key in channels) {
-    count = count + channels[key].subscribers.amount;
+    console.log(channels[key][dataType].amount);
+    count = count + channels[key][dataType].amount;
   }
-  totalSubs = count;
-  fillProgress(totalSubs);
+  return count;
 }
 
-function fillProgress(subs) {
+function getWeeklyData(dataType) {
+  let amount = [];
+  for (var key in channels) {
+    amount.push(channels[key][dataType].weeklyChange);
+  }
+  return amount;
+}
+
+function createCards(arr, nodes) {
+  for (var i = 0; i < arr.length; i += 1) {
+    var value = arr[i];
+    var parent = nodes[i];
+    switch (true) {
+      case (value > 10):
+        parent.classList.add('bg-light-blue');
+        break;
+      case (value < 10 && value > 0):
+        parent.classList.add('bg-lightest-blue');
+        break;
+      case (value === 0):
+        parent.classList.add('bg-light-gray');
+        break;
+      case (value < 0 && value > -10):
+        parent.classList.add('bg-washed-red');
+        break;
+      case (value < -10):
+        parent.classList.add('bg-light-red');
+        break;
+      default:
+        console.log('error');
+    }
+    
+    var text = isPostive(arr[i]);
+    let el = document.createElement('h2');
+    el.classList.add('f2');
+    el.innerText = text;
+    nodes[i].appendChild(el);
+  }
+}
+
+function fillProgress(amount) {
   const title = document.querySelector('[data-progress-title]');
-  title.innerText = String(subs);
-  const percent = (subs/subGoal) * 100;
+  title.innerText = String(amount);
+  const percent = (amount/goal) * 100;
   const bar = document.querySelector('[data-progress]');
   bar.dataset.progress = String(percent);
   bar.style.width = `${percent}%`;
 }
 
 function init() {
-  countSubs();
-  let subsChange = [];
-  for (var key in channels) {
-    if (channels.hasOwnProperty(key)) {
-      subsChange.push(channels[key].subscribers.weeklyChange);
-    } 
-  }
-  for (var i = 0; i < subs.length; i += 1) {
-    var text = isPostive(subsChange[i]);
-    let el = document.createElement('h2');
-    el.classList.add('f2');
-    el.innerText = text;
-    subs[i].appendChild(el);
-  }
+  const totalSubs = count('subscribers');
+  fillProgress(totalSubs);
+
+  const weeklyRetention = getWeeklyData('audienceRetention');
+  const weeklyWatchers = getWeeklyData('watchTime');
+  const weeklySubs = getWeeklyData('subscribers');
+
+  createCards(weeklySubs, subCards);
+  createCards(weeklyRetention, retentionCards);
+  createCards(weeklyWatchers, watchCards);
+
 }
 
 init();
