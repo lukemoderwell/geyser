@@ -23,6 +23,8 @@ function countSubs() {
 }
 
 function fillProgress(subs) {
+  const title = document.querySelector('[data-progress-title]');
+  title.innerText = String(subs);
   const percent = (subs/subGoal) * 100;
   const bar = document.querySelector('[data-progress]');
   bar.dataset.progress = String(percent);
@@ -44,7 +46,6 @@ function init() {
     el.innerText = text;
     subs[i].appendChild(el);
   }
-  fillProgress();
 }
 
 init();
