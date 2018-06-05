@@ -1,16 +1,43 @@
-import data from './data.json';
+import data1 from './data1.json';
+import data2 from './data2.json';
+
+const weeklyChanges = {
+  "crossroads": {
+    "averageViewPercentage": (data2.channels.crossroads.rows[0] - data1.channels.crossroads.rows[0]) / (data2.channels.crossroads.rows[0] + data1.channels.crossroads.rows[0]),
+    "netSubscribers": ((data2.channels.crossroads.rows[1] + data1.channels.crossroads.rows[1]) - (data2.channels.crossroads.rows[2] + data1.channels.crossroads.rows[2])) / data2.channels.crossroads.rows[3],
+    "totalSubscribers": data2.channels.crossroads.rows[3],
+    "minutesWatched": (data2.channels.crossroads.rows[4] - data1.channels.crossroads.rows[4]) / (data2.channels.crossroads.rows[4] + data1.channels.crossroads.rows[4])
+  },
+  "brianBringsABeer": {
+    "averageViewPercentage": (data2.channels.brianBringsABeer.rows[0] - data1.channels.brianBringsABeer.rows[0]) / (data2.channels.brianBringsABeer.rows[0] + data1.channels.brianBringsABeer.rows[0]),
+    "netSubscribers": ((data2.channels.brianBringsABeer.rows[1] + data1.channels.brianBringsABeer.rows[1]) - (data2.channels.brianBringsABeer.rows[2] + data1.channels.brianBringsABeer.rows[2])) / data2.channels.brianBringsABeer.rows[3],
+    "totalSubscribers": data2.channels.brianBringsABeer.rows[3],
+    "minutesWatched": (data2.channels.brianBringsABeer.rows[4] - data1.channels.brianBringsABeer.rows[4]) / (data2.channels.brianBringsABeer.rows[4] + data1.channels.brianBringsABeer.rows[4])
+  },
+  "crossroadsMusic": {
+    "averageViewPercentage": (data2.channels.crossroadsMusic.rows[0] - data1.channels.crossroadsMusic.rows[0]) / (data2.channels.crossroadsMusic.rows[0] + data1.channels.crossroadsMusic.rows[0]),
+    "netSubscribers": ((data2.channels.crossroadsMusic.rows[1] + data1.channels.crossroadsMusic.rows[1]) - (data2.channels.crossroadsMusic.rows[2] + data1.channels.crossroadsMusic.rows[2])) / data2.channels.crossroadsMusic.rows[3],
+    "totalSubscribers": data2.channels.crossroadsMusic.rows[3],
+    "minutesWatched": (data2.channels.crossroadsMusic.rows[4] - data1.channels.crossroadsMusic.rows[4]) / (data2.channels.crossroadsMusic.rows[4] + data1.channels.crossroadsMusic.rows[4])
+  }
+}
+
+console.log(weeklyChanges);
 
 const goal = 50000;
-const channels = data.channels;
+const crdsData = weeklyChanges.crossroads;
+const bbabData = weeklyChanges.brianBringsABeer;
+const cmData = weeklyChanges.crossroadsMusic;
+const totalSubs = (crdsData.totalSubscribers + bbabData.totalSubscribers + cmData.totalSubscribers);
 const subCards = document.querySelectorAll('[data-metric="subscribers"]');
 const retentionCards = document.querySelectorAll('[data-metric="retention"]');
 const watchCards = document.querySelectorAll('[data-metric="watch"]');
 
-function isPostive(n) {
+function formatNumber(n) {
   if (n > 0) {
-    n = `+${n}`;
+    n = `+${n}%`;
   }
-  return n;
+  return `${n}%`;
 }
 
 function count(dataType) {
@@ -21,15 +48,7 @@ function count(dataType) {
   return count;
 }
 
-function getWeeklyData(dataType) {
-  let amount = [];
-  for (var key in channels) {
-    amount.push(channels[key][dataType].weeklyChange);
-  }
-  return amount;
-}
-
-function createCards(arr, nodes) {
+function createCards(obj, nodes) {
   for (var i = 0; i < arr.length; i += 1) {
     const value = arr[i];
     const parent = nodes[i];
@@ -79,17 +98,11 @@ function fillProgress(amount) {
 }
 
 function init() {
-  const totalSubs = count('subscribers');
   fillProgress(totalSubs);
 
-  const weeklyRetention = getWeeklyData('audienceRetention');
-  const weeklyWatchers = getWeeklyData('watchTime');
-  const weeklySubs = getWeeklyData('subscribers');
-
+  createCards(crds, retentionCards);
   createCards(weeklySubs, subCards);
-  createCards(weeklyRetention, retentionCards);
   createCards(weeklyWatchers, watchCards);
-
 }
 
 init();
