@@ -99,10 +99,6 @@ function fillProgress(amount) {
 
 function init() {
   fillProgress(totalSubs);
-
-  createCards(crds, retentionCards);
-  createCards(weeklySubs, subCards);
-  createCards(weeklyWatchers, watchCards);
 }
 
 init();
