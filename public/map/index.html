@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Geyser</title>
+  <meta name="description" content="An interactive map">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
 <style>
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -62,7 +68,8 @@
 <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-
+  var thing = document.getElementsByTagName("svg")[0];
+  thing.id = 'statesvg';
 	function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
 		return "<h4>"+n+"</h4><table>"+
 			"<tr><td>Views</td><td>"+(d.views)+"</td></tr>"+
