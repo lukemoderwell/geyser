@@ -12,19 +12,24 @@
 <style>
   .arc text {
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 1px;
-    text-anchor: middle;
+    font-weight: bold;
+    text-anchor: start;
     z-index: 100;
   }
 
   .arc path {
     stroke: #fff;
   }
+  .pie {
+    display: block;
+    margin: auto;
+  }
 </style>
 <div class="container-fluid pa4">
-  <h1>Views By Source</h1>
-  <svg width="1200" height="800"></svg>
+  <h1 style="text-align: center;">Views By Source</h1>
+  <svg class="pie" width="1000" height="800"></svg>
 </div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
@@ -71,7 +76,6 @@
       .attr("transform", function (d) {
         return "translate(" + label.centroid(d) + ")";
       })
-      .attr("dy", "0.35em")
       .text(function (d) {
         return d.data.kind;
       });
